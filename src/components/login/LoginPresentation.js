@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import TextField from '../TextField';
+import { withRouter } from 'react-router';
+// import  { Redirect } from 'react-router-dom'
 import FlatButton from 'material-ui/FlatButton';
 
 const styles = {
@@ -50,8 +52,8 @@ class LoginPresentation extends Component {
           character.name === username && character.birth_year === password
       );
       if (user) {
-        // this.props.history.push("/search");
-        window.URL = "http://localhost:3000/search";
+        this.props.history.push("/search");
+        // window.URL = "http://localhost:3000/search";
       } else {
         this.setState({
           errorMessage: "Please enter a valid user name and birth year"
@@ -129,4 +131,4 @@ class LoginPresentation extends Component {
     }
 }
 
-export default LoginPresentation;
+export default withRouter(LoginPresentation);
