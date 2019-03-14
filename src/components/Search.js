@@ -37,7 +37,9 @@ export default class Search extends Component {
     });
   };
 
+
   render() {
+    console.log("selected planet", this.state.selectedPlanet);
     return (
       <div>
         <div className="container">
@@ -53,9 +55,9 @@ export default class Search extends Component {
               />
             </div>
             <ul>
-              {this.state.relatedPlanet.map(planet => (
+              {this.state.relatedPlanet.map((planet, index) => (
                 <div>
-                  <p className="list-options" key={planet.name}>{planet.name}</p>
+                  <p className="list-options" id={`planet${index+1}`} key={planet.name}>{planet.name}</p>
                 </div>
               ))}
             </ul>
@@ -65,7 +67,7 @@ export default class Search extends Component {
           </form>
           <div className="text-center selectedPlanet">
             {this.state.selectedPlanet !== "" && (
-              <p>You submitted the planet {this.state.selectedPlanet}</p>
+              <p>You submitted the planet : <span className="planet-name-style">{this.state.selectedPlanet}</span></p>
             )}
           </div>
         </div>

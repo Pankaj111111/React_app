@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { BrowserRouter as Router, Route,  } from "react-router-dom";
-import { browserHistory as history } from 'react-router';
 import Login from "./components/login/Login";
 import Search from "./components/Search";
 

@@ -75,5 +75,10 @@ h1 {
 }
 
 .selectedPlanet {
-  color: white;
+  color:black;
+  margin-top: 20px;
+}
+
+.planet-name-style{
+  color: #2e2e88;
 }
