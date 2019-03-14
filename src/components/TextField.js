@@ -63,8 +63,8 @@ class Input extends React.Component {
             }
 
             if (this.props.type === "text") {
-                if (data.length > 15) {
-                        return `${field} can not be more than 15 characters`;
+                if (data.length > 20) {
+                        return `${field} can not be more than 20 characters`;
                 }
 
                 if (data.length < 3) {
@@ -74,8 +74,8 @@ class Input extends React.Component {
 
             
 			if (this.props.type === "password") {
-                if (data.length > 15) {
-                    return `${field} can not be more than 15 characters`;
+                if (data.length > 20) {
+                    return `${field} can not be more than 20 characters`;
                 }
 
                 if (data.length < 3) {
@@ -116,7 +116,7 @@ class Input extends React.Component {
         const type = props.type;
         const textPattern = "^.+$";
         // const passwordStrength = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,16}$)";
-        const passwordStrength = "^[A-Z0-9]{5}(?:List)?$";
+        const passwordStrength = "^[a-zA-Z0-9_.]{5,8}$";
         let pattern;
 
         if (type === "password") {
