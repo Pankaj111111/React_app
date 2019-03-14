@@ -116,7 +116,7 @@ class Input extends React.Component {
         const type = props.type;
         const textPattern = "^.+$";
         // const passwordStrength = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,16}$)";
-        const passwordStrength = "^[a-zA-Z0-9_.]{5,8}$";
+        const passwordStrength = "^[a-zA-Z0-9_.]{5,8}$"; 
         let pattern;
 
         if (type === "password") {
