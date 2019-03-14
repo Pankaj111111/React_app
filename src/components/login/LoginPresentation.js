@@ -53,7 +53,6 @@ class LoginPresentation extends Component {
       );
       if (user) {
         this.props.history.push("/search");
-        // window.URL = "http://localhost:3000/search";
       } else {
         this.setState({
           errorMessage: "Please enter a valid user name and birth year"
