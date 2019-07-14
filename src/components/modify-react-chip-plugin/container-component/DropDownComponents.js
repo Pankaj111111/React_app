@@ -18,7 +18,7 @@ class DropDownComp extends Component {
                 <Chips 
                     value={this.state.chips}
                     onChange={this.onChange}
-                    suggestions={["Your", "Data", "Here"]}
+                    suggestions={["123:Your", "1234:Data", "12345:Here"]}
                 />
             </div>
         )

@@ -77,6 +77,7 @@ class Chips extends Component {
   }
   
   onBlur = e => {
+    debugger;
     this.refs.wrapper.focus();
   }
 
@@ -101,6 +102,7 @@ class Chips extends Component {
   }
 
   onBackspace = (code) => {
+    debugger;
     if (this.state.value === "" && this.props.value.length > 0) {
       if (this.state.chipSelected) {
         const nextChips = this.props.value.slice(0, -1);
@@ -116,6 +118,7 @@ class Chips extends Component {
   }
 
   addChip = (value) => {
+    debugger;
     if (this.props.uniqueChips && this.props.value.indexOf(value) !== -1) {
       this.setState({value: ""});
       return;
@@ -126,6 +129,7 @@ class Chips extends Component {
   }
 
   removeChip = idx => () => {
+    debugger;
     let left = this.props.value.slice(0, idx);
     let right = this.props.value.slice(idx + 1);
     const nextChips = [...left, ...right];
@@ -146,16 +150,25 @@ class Chips extends Component {
   }
 
   filterUniqueChips = suggestions => {
+    debugger;
     let { value, getChipValue, getSuggestionValue } = this.props;
-
+    // let suggetionList = [];
+    // suggestions.forEach((suggestion)=>{
+    //   let item = [];
+    //   item = suggestion.split(":");
+    //   suggetionList.push(item[1]);
+    // })
+    // return suggetionList;
     return suggestions
       .filter(suggestion => !value.some(chip => getChipValue(chip) == getSuggestionValue(suggestion)));
   }
 
   callFetchSuggestions = (fetchSuggestions, value, canceled) => {
+    debugger;
     let { uniqueChips } = this.props;
     
     let callback = suggestions => {
+      debugger;
       if(!canceled.isCancaled()){
         this.setState({ 
           loading: false,
@@ -173,6 +186,7 @@ class Chips extends Component {
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
+    debugger;
     let { uniqueChips, suggestions, fetchSuggestions, suggestionsFilter } = this.props;
 
     if( fetchSuggestions ){
@@ -180,23 +194,32 @@ class Chips extends Component {
 
       this.asyncSuggestLimiter.invoke(fetchSuggestions, value);
     } else {
+      let suggetionList = [];
+      suggestions.forEach((suggestion)=>{
+        let item = [];
+        item = suggestion.split(":");
+        suggetionList.push(item[1]);
+      })
       this.setState({
-        suggestions: (uniqueChips ? this.filterUniqueChips(suggestions) : suggestions).filter(opts => suggestionsFilter(opts, value))
+        suggestions: (uniqueChips ? this.filterUniqueChips(suggetionList) : suggetionList).filter(opts => suggestionsFilter(opts, value))
       });
     }
   }
 
   onSuggestionsClearRequested = () => {
+    debugger;
     this.setState({suggestions: []})
   }
 
   onSuggestionSelected = (e, { suggestion }) => {
+    debugger;
     this.lastEvent = e;
     this.addChip(suggestion);
     this.setState({ value: '' });
   }
 
   onChange = (e, { newValue }) => {
+    debugger;
     if (!this.props.fromSuggestionsOnly && newValue.indexOf(',') !== -1 && this.props.createChipKeys.includes(9)) {
       let chips = newValue.split(",").map((val) => val.trim()).filter((val) => val !== "");
       chips.forEach(chip => {
